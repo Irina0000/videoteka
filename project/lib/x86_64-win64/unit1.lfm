@@ -1,0 +1,137 @@
+object Form1: TForm1
+  Left = 289
+  Height = 506
+  Top = 152
+  Width = 759
+  Caption = 'Form1'
+  ClientHeight = 506
+  ClientWidth = 759
+  LCLVersion = '1.6.0.4'
+  object DBGrid1: TDBGrid
+    Left = 152
+    Height = 368
+    Top = 32
+    Width = 568
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 464
+    Height = 25
+    Top = 424
+    Width = 75
+    Caption = 'Searh'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Edit1: TEdit
+    Left = 152
+    Height = 23
+    Top = 424
+    Width = 304
+    OnChange = Edit1Change
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 47
+    Height = 15
+    Top = 432
+    Width = 82
+    Caption = 'Поиск Фильма'
+    ParentColor = False
+  end
+  object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'фильм'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'страна'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'жанр'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'год  выпуска'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'режиссёр'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'главные роли'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'содержание'
+        DataType = ftString
+        Precision = -1
+        Size = 1500
+      end    
+      item
+        Name = 'оценка'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Active = True
+    Database = MySQL55Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from prokat;'
+    )
+    Options = []
+    Params = <>
+    left = 58
+    top = 160
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = MySQL55Connection1
+    Options = []
+    left = 58
+    top = 92
+  end
+  object MySQL55Connection1: TMySQL55Connection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'videoteka'
+    KeepConnection = False
+    Password = 'root'
+    Transaction = SQLTransaction1
+    UserName = 'root'
+    CharSet = 'utf8'
+    HostName = '127.0.0.1'
+    Options = []
+    left = 58
+    top = 30
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 58
+    top = 232
+  end
+end
